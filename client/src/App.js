@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { AuthProvider } from "./context/auth";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import SingleTerm from "./pages/SingleTerm";
-import Header from "./components/Header";
+import Home from "./pages/Home/index";
+import Login from "./pages/Login/index";
+import Register from "./pages/Register/index";
+import SingleTerm from "./pages/SingleTerm/index";
+import Header from "./components/Header/index";
 import { GlobalStyles } from "./globalStyles";
-import styled from "styled-components";
 
 const App = () => {
   return (

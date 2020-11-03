@@ -14,7 +14,7 @@ module.exports = {
     },
     async getTerm(_, { termId }) {
       try {
-        const term = await Term.findById(postId);
+        const term = await Term.findById(termId);
         if (term) {
           return term;
         } else {
