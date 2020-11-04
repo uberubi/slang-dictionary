@@ -9,9 +9,10 @@ import {
 import { AuthContext } from "../../context/auth";
 import { useMutation } from "@apollo/client";
 import { REGISTER_USER_MUTATION } from "../../queries/queries";
+
 const Register = (props) => {
   const context = useContext(AuthContext);
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -23,11 +24,11 @@ const Register = (props) => {
     update(_, { data: { register: userData } }) {
       context.login(userData);
       props.history.push("/");
-      console.log('ПОЛЬЗОВАТЕЛЬ ДОБАВЛЕН')
+      console.log("ПОЛЬЗОВАТЕЛЬ ДОБАВЛЕН");
     },
     onError(err) {
-      console.log('ОШИБКА ПРОИЗОШЛА')
-      console.log(err)
+      console.log("ОШИБКА ПРОИЗОШЛА");
+      console.log(err);
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
     },
     variables: values,
@@ -55,6 +56,7 @@ const Register = (props) => {
           onChange={onChange}
           placeholder="Емаил"
           type="email"
+          autoComplete="nope"
         />
         <RegisterFormInput
           name="username"
@@ -62,6 +64,7 @@ const Register = (props) => {
           onChange={onChange}
           placeholder="Имя"
           type="text"
+          autoComplete="nope"
         />
         <RegisterFormInput
           name="password"

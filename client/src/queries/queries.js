@@ -12,8 +12,20 @@ export const GET_TERMS_QUERY = gql`
   }
 `;
 
+export const LOGIN_USER_MUTATION = gql`
+  mutation register($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      id
+      email
+      username
+      createdAt
+      token
+    }
+  }
+`;
+
 export const REGISTER_USER_MUTATION = gql`
-    mutation register(
+  mutation register(
     $username: String!
     $email: String!
     $password: String!
