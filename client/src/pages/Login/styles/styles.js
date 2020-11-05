@@ -8,11 +8,11 @@ export const LoginFormContainer = styled.div`
   padding: 30px;
   text-align: center;
 `;
+
 export const LoginForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid #f2aa4cff; */
   border-radius: 5%;
   width: 50%;
   flex-direction: column;

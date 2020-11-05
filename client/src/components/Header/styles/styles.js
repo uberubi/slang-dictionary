@@ -1,9 +1,21 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { Link as ReactRouterLink } from "react-router-dom";
+import { mainOrange, mainBlack } from "../../../globalStyles";
 
-export const HeaderContainer = styled.div`
-  background-color: #f2aa4cff;
+const Links = css`
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: ${mainBlack};
+`;
+
+export const Container = styled.div`
+  display: flex;
+  justify-content: space-around;
+  background-color: ${mainOrange};
+  border-bottom: 10px solid ${mainBlack};
   height: 10vh;
-  overflow: hidden;
+  min-height: 60px;
   &.sticky {
     position: fixed;
     top: 0;
@@ -11,11 +23,45 @@ export const HeaderContainer = styled.div`
   }
 
   &.sticky + .content {
-  padding-top: 60px;
-}
+    padding-top: 60px;
+  }
 `;
+
 export const Title = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-width: 700px;
+`;
+
+export const TitleLink = styled(ReactRouterLink)`
+  ${Links}
+  font-family: 'Source Sans Pro';
+  font-weight: 900;
+  font-style: normal;
+  font-size: 50px;
+`;
+
+export const Logo = styled.div``;
+export const LoginInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 200px;
+`;
+
+export const LoginInfoLink = styled(ReactRouterLink)`
+  ${Links}
+  &:nth-child(1) {
+    margin-right: 10px;
+  }
+`;
+
+export const User = styled.p`
+  margin-right: 10px;
   font-weight: bold;
   font-size: 20px;
+  text-transform: uppercase;
 `;

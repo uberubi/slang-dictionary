@@ -1,11 +1,24 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { mainBlack, mainOrange } from "../../../globalStyles";
 
-export const AddNewTermCard = styled.div`
-    border: 1px solid red;
-    position: sticky;
-    top: 100px;
-    margin: 200px 20px;
-    height: 200px;
-    width: 400px;
-    background-color: #f9f9f9;
-`
+export const Wrapper = styled.div`
+  position: sticky;
+  top: 100px;
+  margin: 200px 20px;
+  height: 200px;
+  width: 400px;
+  background-color: ${mainOrange};
+  text-align: center;
+  font-weight: 700;
+  padding: 10px;
+  border: 1px solid ${mainBlack};
+  border-radius: 4px;
+  a {
+    
+
+    font-size: 50px;
+    cursor: pointer;
+    color: #101820ff;
+    text-decoration: none;
+  }
+`;

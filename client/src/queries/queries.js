@@ -12,6 +12,18 @@ export const GET_TERMS_QUERY = gql`
   }
 `;
 
+export const GET_TERM_QUERY = gql`
+  query($termId: ID!){
+    getTerm(termId: $termId) {
+    id
+    title
+    text
+    username
+    createdAt
+  }
+  }
+`;
+
 export const LOGIN_USER_MUTATION = gql`
   mutation register($username: String!, $password: String!) {
     login(username: $username, password: $password) {

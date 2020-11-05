@@ -14,6 +14,7 @@ const Home = () => {
         return (
           <TermCard
             key={term.id}
+            id={term.id}
             title={term.title}
             text={term.text}
             username={term.username}

@@ -1,14 +1,16 @@
 import React from "react";
-import { Card, Title, Text, Date, Username } from "./styles/styles";
+import dayjs from 'dayjs'
+import LocalizedFormat from "dayjs/plugin/LocalizedFormat";
+dayjs.extend(LocalizedFormat); // extend dayjs with LocalizedFormat plugin
+import * as S from './styles/styles'
 
-const TermCard = ({title, text, createdAt, username}) => {
+const TermCard = ({ id, title, text, createdAt, username }) => {
   return (
-    <Card>
-      <Title>{title}</Title>
-      <Text>{text}</Text>
-      <Date>{createdAt}</Date>
-      <Username>{username}</Username>
-    </Card>
+    <S.Card>
+      <S.TitleLink to={`terms/${id}`}>{title.toLowerCase()}</S.TitleLink>
+      <S.Text>{text}</S.Text>
+      <S.AuthorInfo>by {username} {dayjs(createdAt).format('LL')}</S.AuthorInfo>
+    </S.Card>
   );
 };
 

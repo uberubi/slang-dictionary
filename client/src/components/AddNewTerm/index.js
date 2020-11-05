@@ -1,8 +1,13 @@
 import React from "react";
-import { AddNewTermCard } from "./styles/styles";
-
+import * as S from "./styles/styles";
+import { Link } from "react-router-dom";
 const AddNewTerm = () => {
-  return <AddNewTermCard>Добавить новое слово</AddNewTermCard>;
+  return (
+    <S.Wrapper>
+      Добавить новое слово <br />
+      <Link to="/add">+</Link>
+    </S.Wrapper>
+  );
 };
 
 export default AddNewTerm;

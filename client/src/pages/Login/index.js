@@ -24,11 +24,8 @@ const Login = (props) => {
     update(_, { data: { login: userData } }) {
       context.login(userData);
       props.history.push("/");
-      console.log("ПОЛЬЗОВАТЕЛЬ ДОБАВЛЕН");
     },
     onError(err) {
-      console.log("ОШИБКА ПРОИЗОШЛА");
-      console.log(err);
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
     },
     variables: values,
