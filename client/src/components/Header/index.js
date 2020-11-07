@@ -17,7 +17,6 @@ const Header = () => {
 
   return (
     <S.Container ref={navbarRef}>
-      <S.Logo></S.Logo>
       <S.Title>
         <S.TitleLink to="/">ЯUSSIAN SLANG</S.TitleLink>
       </S.Title>

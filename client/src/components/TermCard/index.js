@@ -7,9 +7,10 @@ import * as S from './styles/styles'
 const TermCard = ({ id, title, text, createdAt, username }) => {
   return (
     <S.Card>
-      <S.TitleLink to={`terms/${id}`}>{title.toLowerCase()}</S.TitleLink>
+      <S.TitleLink to={`/terms/${id}`}>{title.toLowerCase()}</S.TitleLink>
       <S.Text>{text}</S.Text>
-      <S.AuthorInfo>by {username} {dayjs(createdAt).format('LL')}</S.AuthorInfo>
+      {/* <S.AuthorInfo>by {username} {dayjs(createdAt).format('LL')}</S.AuthorInfo> */}
+      <S.AuthorInfo>by {username} {dayjs(+createdAt).format('LL')}</S.AuthorInfo>
     </S.Card>
   );
 };

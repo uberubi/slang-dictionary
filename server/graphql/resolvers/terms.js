@@ -1,17 +1,40 @@
 const Term = require("../../models/Term");
 const checkAuth = require("../../utils/check-auth");
 const { AuthenticationError, UserInputError } = require("apollo-server");
+const { paginateResults } = require("../../utils/paginate-results");
 
 module.exports = {
   Query: {
-    async getTerms() {
-      try {
-        const terms = await Term.find().sort({ createdAt: -1 });
-        return terms;
-      } catch (err) {
-        throw new Error(err);
-      }
+    async getTerms(_, { pageSize = 5, after }, { dataSources })  {
+      const allTerms = await Term.find().sort();
+      // we want these in reverse chronological order
+      // allTerms.reverse();
+      const terms = paginateResults({
+        after,
+        pageSize,
+        results: allTerms
+      });
+      // console.log(typeof after, after)
+      return {
+        getTerms: terms,
+        cursor: terms.length ? terms[terms.length - 1].cursor : null,
+        // if the cursor at the end of the paginated results is the same as the
+        // last item in _all_ results, then there are no more results after this
+        hasMore: terms.length
+          ? terms[terms.length - 1].cursor !==
+            allTerms[allTerms.length - 1].cursor
+          : false
+      };
     },
+    // async getTerms() {
+    //   try {
+    //     const terms = await Term.find().sort({ createdAt: 1 })
+    //     return terms;
+    //   } catch (err) {
+    //     throw new Error(err);
+    //   }
+    // },
+
     async getTerm(_, { termId }) {
       try {
         const term = await Term.findById(termId);
@@ -41,7 +64,8 @@ module.exports = {
         text,
         user: user.id,
         username: user.username,
-        createdAt: new Date().toISOString(),
+        createdAt: `${Date.now()}`,
+        cursor: `${Math.floor(Math.random() * Math.floor(Math.random() * Date.now()))}`,
       });
 
       const term = await newTerm.save();

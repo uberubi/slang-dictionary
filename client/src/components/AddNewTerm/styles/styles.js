@@ -3,7 +3,7 @@ import { mainBlack, mainOrange } from "../../../globalStyles";
 
 export const Wrapper = styled.div`
   position: sticky;
-  top: 100px;
+  top: 120px;
   margin: 200px 20px;
   height: 200px;
   width: 400px;
@@ -14,8 +14,6 @@ export const Wrapper = styled.div`
   border: 1px solid ${mainBlack};
   border-radius: 4px;
   a {
-    
-
     font-size: 50px;
     cursor: pointer;
     color: #101820ff;

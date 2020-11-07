@@ -14,8 +14,9 @@ export const Container = styled.div`
   justify-content: space-around;
   background-color: ${mainOrange};
   border-bottom: 10px solid ${mainBlack};
-  height: 10vh;
+  height: 80px;
   min-height: 60px;
+  width: 100%;
   &.sticky {
     position: fixed;
     top: 0;
@@ -32,7 +33,7 @@ export const Title = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  min-width: 700px;
+  min-width: 400px;
 `;
 
 export const TitleLink = styled(ReactRouterLink)`
@@ -43,7 +44,6 @@ export const TitleLink = styled(ReactRouterLink)`
   font-size: 50px;
 `;
 
-export const Logo = styled.div``;
 export const LoginInfo = styled.div`
   display: flex;
   justify-content: center;

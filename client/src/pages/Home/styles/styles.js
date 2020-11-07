@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
 `;
 
 export const TermsContainer = styled.div`
-  margin: 20px;
+  margin-top: 20px;
   > * {
     margin-bottom: 20px;
   }

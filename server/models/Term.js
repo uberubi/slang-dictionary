@@ -5,6 +5,7 @@ const termSchema = new Schema({
   text: String,
   createdAt: String,
   username: String,
+  cursor: String
 });
 
 module.exports = model("Term", termSchema);
