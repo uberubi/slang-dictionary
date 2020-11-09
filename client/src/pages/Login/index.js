@@ -44,8 +44,7 @@ const Login = (props) => {
     <LoginFormContainer>
       <LoginForm onSubmit={onSubmit}>
         <LoginFormTitle>
-          Войдите, используя имя пользователя и пароль, который указали при
-          регистрации
+          Войдите, используя имя пользователя и пароль
         </LoginFormTitle>
         <LoginFormInput
           name="username"

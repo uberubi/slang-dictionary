@@ -8,6 +8,7 @@ export const Card = styled.div`
   border-radius: 4px;
   padding: 20px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
 `;
 
 export const TitleLink = styled(ReactRouterLink)`
