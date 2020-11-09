@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
+import Loader from "../../components/common/Loader";
 import TermCard from "../../components/TermCard";
 import { GET_TERM_QUERY } from "../../queries/queries";
 import * as S from "./styles/styles";
@@ -23,7 +24,7 @@ const SingleTerm = (props) => {
           username={data?.getTerm.username}
         />
       ) : (
-        <div>Loading...</div>
+        <Loader />
       )}
     </S.Container>
   );

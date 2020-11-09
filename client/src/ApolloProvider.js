@@ -7,7 +7,6 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { offsetLimitPagination } from "@apollo/client/utilities";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:5000",
@@ -22,21 +21,12 @@ const authLink = setContext(() => {
   };
 });
 
-const cache = new InMemoryCache({
-  typePolicies: {
-    Query: {
-      fields: {
-        feed: offsetLimitPagination(["type"])
-      }
-    }
-  }
-})
+
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: cache,
+  cache: new InMemoryCache(),
 });
-
 export default (
   <ApolloProvider client={client}>
     <App />

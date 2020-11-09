@@ -37,12 +37,12 @@ module.exports = gql`
   type TermConnection {
     cursor: String!
     hasMore: Boolean!
-    getTerms: [Term]
+    terms: [Term]
   }
 
   type Query {
     getUsers: [User]
-    getTerms(
+    terms(
       """
       The number of results to show. Must be >= 1. Default = 5
       """

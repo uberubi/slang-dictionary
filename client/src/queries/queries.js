@@ -2,10 +2,10 @@ import { gql } from "@apollo/client";
 
 export const GET_TERMS_QUERY = gql`
 query($after: String){
-  getTerms(after: $after) {
+  terms(after: $after) {
     cursor
     hasMore
-    getTerms {
+    terms {
       id
       title
       text
