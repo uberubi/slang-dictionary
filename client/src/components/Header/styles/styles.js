@@ -12,6 +12,8 @@ const Links = css`
 export const Container = styled.div`
   display: flex;
   justify-content: space-around;
+  position: fixed;
+  z-index: 999;
   background-color: ${mainOrange};
   border-bottom: 10px solid ${mainBlack};
   height: 80px;

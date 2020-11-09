@@ -5,15 +5,15 @@ const { paginateResults } = require("../../utils/paginate-results");
 
 module.exports = {
   Query: {
-    async terms(_, { pageSize = 6, after }) {
-      const allTerms = await Term.find();
+    async getTerms(_, { pageSize = 5, after }) {
+      const allTerms = await Term.find().sort({ createdAt: -1 });
       const terms = paginateResults({
         after,
         pageSize,
         results: allTerms,
       });
       return {
-        terms,
+        getTerms: terms,
         cursor: terms.length ? terms[terms.length - 1].cursor : null,
         // if the cursor at the end of the paginated results is the same as the
         // last item in _all_ results, then there are no more results after this
@@ -30,6 +30,18 @@ module.exports = {
           return term;
         } else {
           throw new Error("Term not found");
+        }
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
+    async getAllTermsByUser(_, { username }) {
+      try {
+        const userTerms = await Term.find({ username: `${username}` });
+        if (userTerms) {
+          return userTerms;
+        } else {
+          throw new Error("User not found");
         }
       } catch (err) {
         throw new Error(err);

@@ -9,8 +9,7 @@ const TermCard = ({ id, title, text, createdAt, username }) => {
     <S.Card>
       <S.TitleLink to={`/terms/${id}`}>{title.toLowerCase()}</S.TitleLink>
       <S.Text>{text}</S.Text>
-      {/* <S.AuthorInfo>by {username} {dayjs(createdAt).format('LL')}</S.AuthorInfo> */}
-      <S.AuthorInfo>by {username} {dayjs(+createdAt).format('LL')}</S.AuthorInfo>
+      <S.AuthorInfo>by <S.UserLink to={`/users/${username}`}>{username}</S.UserLink> {dayjs(+createdAt).format('LL')}</S.AuthorInfo>
     </S.Card>
   );
 };

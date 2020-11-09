@@ -18,6 +18,11 @@ export const TitleLink = styled(ReactRouterLink)`
   text-decoration: none;
 
 `;
+export const UserLink = styled(ReactRouterLink)`
+  color: ${mainBlack}
+`
+
+
 export const Text = styled.div`
   padding: 10px;
   font-size: 20px;

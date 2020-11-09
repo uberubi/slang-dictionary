@@ -4,14 +4,14 @@ import * as S from './styles/styles'
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
-  window.onscroll = function () {
-    const { offsetTop } = navbarRef.current;
-    if (window.pageYOffset > offsetTop) {
-      navbarRef.current.classList.add("sticky");
-    } else {
-      navbarRef.current.classList.remove("sticky");
-    }
-  };
+  // window.onscroll = function () {
+  //   const { offsetTop } = navbarRef.current;
+  //   if (window.pageYOffset > offsetTop) {
+  //     navbarRef.current.classList.add("sticky");
+  //   } else {
+  //     navbarRef.current.classList.remove("sticky");
+  //   }
+  // };
 
   const navbarRef = useRef();
 

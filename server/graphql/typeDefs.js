@@ -37,12 +37,12 @@ module.exports = gql`
   type TermConnection {
     cursor: String!
     hasMore: Boolean!
-    terms: [Term]
+    getTerms: [Term]
   }
 
   type Query {
-    getUsers: [User]
-    terms(
+    users: [User]
+    getTerms(
       """
       The number of results to show. Must be >= 1. Default = 5
       """
@@ -53,6 +53,7 @@ module.exports = gql`
       after: String
     ): TermConnection!
     getTerm(termId: ID!): Term
+    getAllTermsByUser(username: String!): [Term]
   }
 `;
 // const { gql } = require("apollo-server");

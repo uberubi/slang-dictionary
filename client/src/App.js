@@ -7,20 +7,24 @@ import Login from "./pages/Login/index";
 import Register from "./pages/Register/index";
 import SingleTerm from "./pages/SingleTerm/index";
 import NewTerm from "./pages/NewTerm/index";
+import UserProfile from "./pages/UserProfile/index";
 import Header from "./components/Header/index";
-import { GlobalStyles } from "./globalStyles";
-import AuthRoute from './utils/AuthRoute'
+import { AppContainer, GlobalStyles } from "./globalStyles";
+import AuthRoute from "./utils/AuthRoute";
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
         <Header />
-        <Route exact path="/" component={Home} />
-        <AuthRoute exact path="/login" component={Login} />
-        <AuthRoute exact path="/register" component={Register} />
-        <Route exact path="/terms/:termsId" component={SingleTerm} />
-        <Route exact path="/add" component={NewTerm} />
+        <AppContainer>
+          <Route exact path="/" component={Home} />
+          <AuthRoute exact path="/login" component={Login} />
+          <AuthRoute exact path="/register" component={Register} />
+          <Route exact path="/terms/:termsId" component={SingleTerm} />
+          <Route exact path="/add" component={NewTerm} />
+          <Route  path="/users/:username" component={UserProfile} />
+        </AppContainer>
       </Router>
       <GlobalStyles />
     </AuthProvider>

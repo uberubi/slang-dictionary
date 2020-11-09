@@ -7,7 +7,6 @@ import * as S from "./styles/styles";
 
 const SingleTerm = (props) => {
   const termId = props.match.params.termsId;
-
   const { data, loading } = useQuery(GET_TERM_QUERY, {
     variables: { termId },
   });
@@ -16,12 +15,12 @@ const SingleTerm = (props) => {
     <S.Container>
       {!loading ? (
         <TermCard
-          key={data?.getTerm.id}
-          id={data?.getTerm.id}
-          title={data?.getTerm.title}
-          text={data?.getTerm.text}
-          createdAt={data?.getTerm.createdAt}
-          username={data?.getTerm.username}
+          key={data.getTerm.id}
+          id={data.getTerm.id}
+          title={data.getTerm.title}
+          text={data.getTerm.text}
+          createdAt={data.getTerm.createdAt}
+          username={data.getTerm.username}
         />
       ) : (
         <Loader />

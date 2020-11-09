@@ -13,19 +13,19 @@ const TermsPagination = () => {
   });
 
   window.onscroll = () => {
-    console.log(data?.terms.hasMore);
+    console.log(data?.getTerms.hasMore);
     if (
       window.innerHeight + window.pageYOffset >= document.body.offsetHeight &&
-      data?.terms.hasMore &&
+      data?.getTerms.hasMore &&
       !loading
     ) {
-      const { cursor: endCursor } = data.terms;
+      const { cursor: endCursor } = data.getTerms;
       fetchMore({
         variables: { after: endCursor },
         updateQuery: (prevResult, { fetchMoreResult }) => {
-          fetchMoreResult.terms.terms = [
-            ...prevResult.terms.terms,
-            ...fetchMoreResult.terms.terms,
+          fetchMoreResult.getTerms.getTerms = [
+            ...prevResult.getTerms.getTerms,
+            ...fetchMoreResult.getTerms.getTerms,
           ];
           return fetchMoreResult;
         },
@@ -34,7 +34,7 @@ const TermsPagination = () => {
   };
   return (
     <S.Container>
-      {data?.terms.terms.map((term) => (
+      {data?.getTerms.getTerms.map((term) => (
         <TermCard
           key={term.id}
           id={term.id}

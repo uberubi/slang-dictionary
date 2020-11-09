@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const GET_TERMS_QUERY = gql`
-query($after: String){
-  terms(after: $after) {
+query getTerms($after: String){
+  getTerms(after: $after) {
     cursor
     hasMore
-    terms {
+    getTerms {
       id
       title
       text
@@ -16,20 +16,21 @@ query($after: String){
   }
 }
 `;
-// export const GET_TERMS_QUERY = gql`
-//   {
-//     getTerms {
-//       id
-//       title
-//       text
-//       username
-//       createdAt
-//     }
-//   }
-// `;
+
+export const GET_ALL_USER_TERMS_QUERY = gql`
+  query getAllTermsByUser($username: String!) {
+    getAllTermsByUser(username: $username) {
+      id
+      title
+      text
+      createdAt
+      username
+    }
+  }
+`
 
 export const GET_TERM_QUERY = gql`
-  query($termId: ID!){
+  query getTerm($termId: ID!){
     getTerm(termId: $termId) {
     id
     title

@@ -14,8 +14,7 @@ const Inputs = css`
 `;
 
 export const Container = styled.div`
-  margin: 0 20%;
-  padding: 30px;
+
 `;
 
 export const Form = styled.form`

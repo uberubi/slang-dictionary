@@ -23,7 +23,7 @@ const generateToken = (user) => {
 
 module.exports = {
   Query: {
-    async getUsers() {
+    async users() {
       try {
         const users = await User.find();
         return users;

@@ -1,8 +1,16 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
-export const mainOrange = '#f2aa4cff';
-export const mainBlack = '#101820ff';
-export const mainGrey = '#d9dad9'
+export const mainOrange = "#f2aa4cff";
+export const mainBlack = "#101820ff";
+export const mainGrey = "#d9dad9";
+
+export const AppContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: 150px 20%;
+`;
 
 export const GlobalStyles = createGlobalStyle`
 
