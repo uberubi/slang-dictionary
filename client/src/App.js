@@ -11,6 +11,7 @@ import UserProfile from "./pages/UserProfile/index";
 import Header from "./components/Header/index";
 import { AppContainer, GlobalStyles } from "./globalStyles";
 import AuthRoute from "./utils/AuthRoute";
+import ScrollToTop from "./components/ScrollToTop/index";
 
 const App = () => {
   return (
@@ -23,7 +24,8 @@ const App = () => {
           <AuthRoute exact path="/register" component={Register} />
           <Route exact path="/terms/:termsId" component={SingleTerm} />
           <Route exact path="/add" component={NewTerm} />
-          <Route  path="/users/:username" component={UserProfile} />
+          <Route path="/users/:username" component={UserProfile} />
+          <ScrollToTop />
         </AppContainer>
       </Router>
       <GlobalStyles />

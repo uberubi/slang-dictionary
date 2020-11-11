@@ -4,6 +4,7 @@ import Loader from "../../components/common/Loader";
 import TermCard from "../../components/TermCard";
 import { GET_ALL_USER_TERMS_QUERY } from "../../queries/queries";
 import * as S from "./styles/styles";
+import ScrollToTop from "../../components/ScrollToTop/index";
 
 const UserProfile = (props) => {
   const username = props.match.params.username;
@@ -11,9 +12,9 @@ const UserProfile = (props) => {
     variables: { username },
   });
 
-  console.log(data?.getAllTermsByUser);
   return (
     <S.Container>
+      <ScrollToTop />
       <h1>Все добавленные слова пользователя:</h1>
       {!loading ? (
         data.getAllTermsByUser.map((term) => (
@@ -24,6 +25,7 @@ const UserProfile = (props) => {
             text={term.text}
             createdAt={term.createdAt}
             username={term.username}
+            isSingleUser={true}
           />
         ))
       ) : (

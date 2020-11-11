@@ -25,6 +25,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${mainBlack};
     background-color: rgb(216, 218, 202);
   }
+  a {
+    text-decoration: none;
+    color: ${mainBlack};
+  }
 
   body::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px #f9f9f9;

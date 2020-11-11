@@ -6,23 +6,23 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    document.addEventListener("scroll", (e) => {
-      toggleVisibility();
-    });
-  });
+    window.addEventListener("scroll", toggleVisibility);
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
 
   function toggleVisibility() {
-      if (window.pageYOffset > 300) {
-        console.log('true')
-        setIsVisible(true);
-      } else {
-        console.log('false')
-
-        setIsVisible(false);
-      }
-    
+    if (window.pageYOffset > 300) {
+      console.log("true");
+      setIsVisible(true);
+    } else {
+      console.log("false");
+      setIsVisible(false);
+    }
   }
-  function goTop() {
+
+  function handleGoTop() {
     console.log("clicked");
     window.scrollTo({
       top: 0,
@@ -33,7 +33,7 @@ const ScrollToTop = () => {
     <>
       {isVisible && (
         <S.Container>
-          <S.ArrowImage onClick={goTop} src={arrowUp} alt="arrow up" />
+          <S.ArrowImage onClick={handleGoTop} src={arrowUp} alt="arrow up" />
         </S.Container>
       )}
     </>

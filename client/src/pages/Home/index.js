@@ -1,17 +1,21 @@
 import React from "react";
 import * as S from "./styles/styles";
 import TermsPagination from "../../components/TermsPagination";
-import ScrollToTop from "../../components/ScrollToTop";
+import { useQuery } from "@apollo/client";
+import { GET_TERMS_QUERY } from "../../queries/queries";
 
 const Home = () => {
+
+  const data = useQuery(GET_TERMS_QUERY, {
+    variables: { after: null },
+    notifyOnNetworkStatusChange: true,
+  });
+
+
   return (
-    <>
-      <S.Container>
-      <ScrollToTop />
-        <TermsPagination />
-      </S.Container>
-      
-    </>
+    <S.Container >
+      <TermsPagination data={data} />
+    </S.Container>
   );
 };
 
