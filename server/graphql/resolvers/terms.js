@@ -2,15 +2,17 @@ const Term = require("../../models/Term");
 const checkAuth = require("../../utils/check-auth");
 const { AuthenticationError, UserInputError } = require("apollo-server");
 const { paginateResults } = require("../../utils/paginate-results");
+const { shuffle } = require("../../utils/shuffle");
 
 module.exports = {
   Query: {
     async getTerms(_, { pageSize = 5, after }) {
       const allTerms = await Term.find().sort({ createdAt: -1 });
+      const shuffledAllTerms = shuffle(allTerms)
       const terms = paginateResults({
         after,
         pageSize,
-        results: allTerms,
+        results: shuffledAllTerms,
       });
       return {
         getTerms: terms,
