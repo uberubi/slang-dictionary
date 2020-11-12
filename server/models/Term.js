@@ -5,7 +5,13 @@ const termSchema = new Schema({
   text: String,
   createdAt: String,
   username: String,
-  cursor: String
+  cursor: String,
+  likes: [
+    {
+      username: String,
+      createdAt: String,
+    },
+  ],
 });
 
 module.exports = model("Term", termSchema);

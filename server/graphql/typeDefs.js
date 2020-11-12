@@ -15,6 +15,7 @@ module.exports = gql`
     createdAt: String!
     username: String!
     cursor: String!
+    likes: [Like]!
   }
   input RegisterInput {
     username: String!
@@ -22,11 +23,17 @@ module.exports = gql`
     confirmPassword: String!
     email: String!
   }
+  type Like {
+    id: ID!
+    createdAt: String!
+    username: String!
+  }
   type Mutation {
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
     createTerm(title: String!, text: String!): Term!
     deleteTerm(termId: ID!): String!
+    likeTerm(termId: ID!): Term!
   }
 
   """

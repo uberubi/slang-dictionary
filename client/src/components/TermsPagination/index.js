@@ -26,7 +26,6 @@ const TermsPagination = (props) => {
         }
       });
       if (node) observer.current.observe(node);
-      console.log(node);
     },
     [loading, data?.getTerms.hasMore]
   );
@@ -45,6 +44,7 @@ const TermsPagination = (props) => {
             lastTermRef={
               data.getTerms.getTerms.length === index + 1 ? lastTerm : null
             }
+            likes={term.likes}
           />
         );
       })}

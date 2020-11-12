@@ -12,6 +12,10 @@ query getTerms($after: String){
       createdAt
       username
       cursor
+      likes {
+        username
+        createdAt
+      }
     }
   }
 }
@@ -87,3 +91,17 @@ export const REGISTER_USER_MUTATION = gql`
     }
   }
 `;
+
+export const LIKE_TERM_MUTATION = gql`
+  mutation likeTerm($termId: ID!) {
+  likeTerm(termId:$termId){
+    id
+    title
+    username
+    likes {
+      createdAt
+      username
+    }
+  }
+}
+`

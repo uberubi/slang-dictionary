@@ -48,54 +48,54 @@ export const GlobalStyles = createGlobalStyle`
 
   @font-face {
     font-family: 'Lora';
-    src: url('../src/fonts/Lora-Regular.ttf') format('truetype');
+    src: url('../src/assets/fonts/Lora-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Lora';
-    src: url('../src/fonts/Lora-Bold.ttf') format('truetype');
+    src: url('../src/assets/fonts/Lora-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
   }
   @font-face {
     font-family: 'Lora';
-    src: url('../src/fonts/Lora-BoldItalic.ttf') format('truetype');
+    src: url('../src/assets/fonts/Lora-BoldItalic.ttf') format('truetype');
     font-weight: 700;
     font-style: italic;
   }
 
   @font-face {
     font-family: 'Lora';
-    src: url('../src/fonts/Lora-MediumItalic.ttf') format('truetype');
+    src: url('../src/assets/fonts/Lora-MediumItalic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
   }
 
   @font-face {
     font-family: 'Source Sans Pro';
-    src: url('../src/fonts/SourceSansPro-Light.ttf') format('truetype');
+    src: url('../src/assets/fonts/SourceSansPro-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Source Sans Pro';
-    src: url('../src/fonts/SourceSansPro-Bold.ttf') format('truetype');
+    src: url('../src/assets/fonts/SourceSansPro-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Source Sans Pro';
-    src: url('../src/fonts/SourceSansPro-Regular.ttf') format('truetype');
+    src: url('../src/assets/fonts/SourceSansPro-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
   }
   @font-face {
     font-family: 'Source Sans Pro';
-    src: url('../src/fonts/SourceSansPro-Black.ttf') format('truetype');
+    src: url('../src/assets/fonts/SourceSansPro-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
   }

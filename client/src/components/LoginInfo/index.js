@@ -4,7 +4,6 @@ import { AuthContext } from "../../context/auth";
 
 const LoginInfo = () => {
   const { user, logout } = useContext(AuthContext);
-console.log(user)
   function handleClick() {
     logout()
   }

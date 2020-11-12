@@ -21,11 +21,19 @@ const authLink = setContext(() => {
   };
 });
 
-
-
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Term: {
+        fields: {
+          likes: {
+            merge: false,
+          },
+        },
+      },
+    },
+  }),
 });
 export default (
   <ApolloProvider client={client}>

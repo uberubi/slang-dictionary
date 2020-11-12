@@ -1,26 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import dayjs from "dayjs";
-import LocalizedFormat from "dayjs/plugin/LocalizedFormat";
-dayjs.extend(LocalizedFormat); // extend dayjs with LocalizedFormat plugin
+dayjs.extend(relativeTime); // extend dayjs with relativeTime plugin for using .fromNow() method
+import relativeTime from "dayjs/plugin/relativeTime";
 import * as S from "./styles/styles";
-
+import LikeButton from "../common/LikeButton";
+import { AuthContext } from "../../context/auth";
 const TermCard = ({
   id,
   title,
   text,
   createdAt,
   username,
+  likes,
   lastTermRef,
-  isSingleUser = false,
 }) => {
+  const { user } = useContext(AuthContext);
   return (
-    <S.Card ref={isSingleUser ? null : lastTermRef}>
+    <S.Card ref={lastTermRef}>
       <S.TitleLink to={`/terms/${id}`}>{title.toLowerCase()}</S.TitleLink>
       <S.Text>{text}</S.Text>
       <S.AuthorInfo>
         by <S.UserLink to={`/users/${username}`}>{username}</S.UserLink>{" "}
-        {dayjs(+createdAt).format("LL")}
+        {dayjs(createdAt).fromNow()}
       </S.AuthorInfo>
+      <LikeButton id={id} likes={likes} user={user} />
     </S.Card>
   );
 };

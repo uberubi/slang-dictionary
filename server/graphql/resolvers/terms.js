@@ -3,16 +3,18 @@ const checkAuth = require("../../utils/check-auth");
 const { AuthenticationError, UserInputError } = require("apollo-server");
 const { paginateResults } = require("../../utils/paginate-results");
 const { shuffle } = require("../../utils/shuffle");
+const { randomCursorGenerator } = require("../../utils/random-cursor-generator");
 
 module.exports = {
   Query: {
     async getTerms(_, { pageSize = 5, after }) {
       const allTerms = await Term.find().sort({ createdAt: -1 });
-      const shuffledAllTerms = shuffle(allTerms)
+      // const shuffledAllTerms = shuffle(allTerms)
       const terms = paginateResults({
         after,
         pageSize,
-        results: shuffledAllTerms,
+        results: allTerms,
+        // results: shuffledAllTerms,
       });
       return {
         getTerms: terms,
@@ -66,10 +68,9 @@ module.exports = {
         text,
         user: user.id,
         username: user.username,
-        createdAt: `${Date.now()}`,
-        cursor: `${Math.floor(
-          Math.random() * Math.floor(Math.random() * Date.now())
-        )}`,
+        createdAt: new Date().toISOString(),
+        cursor: randomCursorGenerator(),
+        likes: []
       });
 
       const term = await newTerm.save();
@@ -92,6 +93,28 @@ module.exports = {
         }
       } catch (err) {
         throw new Error(err);
+      }
+    },
+    async likeTerm(_, { termId }, context) {
+      const { username } = checkAuth(context);
+
+      const term = await Term.findById(termId);
+      if (term) {
+        if (term.likes.find((like) => like.username === username)) {
+          // Term already likes, unlike it
+          term.likes = term.likes.filter((like) => like.username !== username);
+          await term.save();
+        } else {
+          // Not liked, like term
+          term.likes.push({
+            username,
+            createdAt: new Date().toISOString(),
+          });
+        }
+        await term.save();
+        return term;
+      } else {
+        throw new UserInputError();
       }
     },
   },

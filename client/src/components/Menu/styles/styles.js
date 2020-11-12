@@ -3,7 +3,7 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import { mainBlack } from "../../../globalStyles";
 
 export const Container = styled.div`
-min-width: 600px;`;
+min-width: 450px;`;
 
 export const Menu = styled.nav`
   font-family: "Lora";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import arrowUp from "../../images/arrow-up.svg";
+import arrowUp from "../../assets/images/arrow-up.svg";
 import * as S from "./styles/styles";
 
 const ScrollToTop = () => {
@@ -14,16 +14,13 @@ const ScrollToTop = () => {
 
   function toggleVisibility() {
     if (window.pageYOffset > 300) {
-      console.log("true");
       setIsVisible(true);
     } else {
-      console.log("false");
       setIsVisible(false);
     }
   }
 
   function handleGoTop() {
-    console.log("clicked");
     window.scrollTo({
       top: 0,
       behavior: "smooth",
